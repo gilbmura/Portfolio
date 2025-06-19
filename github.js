@@ -7,9 +7,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const githubRepos = document.getElementById('githubRepos');
     const githubLoader = document.getElementById('githubLoader');
     const githubError = document.getElementById('githubError');
-    const githubUsername = document.querySelector('.github-username a');
+    const githubUsername = document.querySelector('.gil-github-username a');
     
-   
     if (githubUsername) {
         githubUsername.href = `https://github.com/${username}`;
         githubUsername.innerHTML = `<i class="fab fa-github"></i> @${username}`;
@@ -34,20 +33,16 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Displaying repositories
     function displayRepos(repos) {
-        
         githubLoader.style.display = 'none';
         
         if (repos.length === 0) {
-            githubRepos.innerHTML = '<p class="no-repos">No public repositories found.</p>';
+            githubRepos.innerHTML = '<p class="gil-no-repos">No public repositories found.</p>';
             return;
         }
         
-       
         const repoHTML = repos.map(repo => {
-            // Get topics/languages if available
             const topics = repo.topics || [];
             
-            // Format date
             const updatedAt = new Date(repo.updated_at);
             const formattedDate = updatedAt.toLocaleDateString('en-US', {
                 year: 'numeric',
@@ -56,28 +51,28 @@ document.addEventListener('DOMContentLoaded', () => {
             });
             
             return `
-                <div class="github-repo">
-                    <div class="repo-header">
-                        <h3 class="repo-name">
+                <div class="gil-github-repo">
+                    <div class="gil-repo-header">
+                        <h3 class="gil-repo-name">
                             <a href="${repo.html_url}" target="_blank">
                                 <i class="fab fa-github"></i> ${repo.name}
                             </a>
                         </h3>
                     </div>
-                    <div class="repo-description">
+                    <div class="gil-repo-description">
                         <p>${repo.description || 'No description provided'}</p>
                     </div>
-                    <div class="repo-meta">
-                        ${repo.language ? `<span class="repo-language"><i class="fas fa-code"></i> ${repo.language}</span>` : ''}
-                        <span class="repo-updated"><i class="fas fa-history"></i> Updated: ${formattedDate}</span>
+                    <div class="gil-repo-meta">
+                        ${repo.language ? `<span class="gil-repo-language"><i class="fas fa-code"></i> ${repo.language}</span>` : ''}
+                        <span class="gil-repo-updated"><i class="fas fa-history"></i> Updated: ${formattedDate}</span>
                     </div>
-                    <div class="repo-stats">
-                        <span class="repo-stars"><i class="fas fa-star"></i> ${repo.stargazers_count}</span>
-                        <span class="repo-forks"><i class="fas fa-code-branch"></i> ${repo.forks_count}</span>
+                    <div class="gil-repo-stats">
+                        <span class="gil-repo-stars"><i class="fas fa-star"></i> ${repo.stargazers_count}</span>
+                        <span class="gil-repo-forks"><i class="fas fa-code-branch"></i> ${repo.forks_count}</span>
                     </div>
                     ${topics.length > 0 ? `
-                    <div class="repo-topics">
-                        ${topics.slice(0, 4).map(topic => `<span class="repo-topic">${topic}</span>`).join('')}
+                    <div class="gil-repo-topics">
+                        ${topics.slice(0, 4).map(topic => `<span class="gil-repo-topic">${topic}</span>`).join('')}
                     </div>
                     ` : ''}
                 </div>
@@ -87,12 +82,10 @@ document.addEventListener('DOMContentLoaded', () => {
         githubRepos.innerHTML = repoHTML;
     }
     
-    // error message handling
     function showError() {
         githubLoader.style.display = 'none';
         githubError.style.display = 'block';
     }
     
-    // Initializing
     fetchGitHubRepos();
 }); 

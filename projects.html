@@ -3,47 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Explore Gilbert Muramirabagabo's portfolio of web development and software engineering projects">
-    <title>My Projects | Gilbert Muramirabagabo</title>
+    <title>Gilbert</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <nav class="navbar">
-        <div class="logo">Gilbert M.</div>
-        <div class="nav-toggle" id="navToggle">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-        <ul class="nav-links">
+    <nav class="gil-navbar">
+        <ul class="gil-nav-links">
             <li><a href="index.html">Home</a></li>
             <li><a href="about.html">About</a></li>
             <li><a href="projects.html">Projects</a></li>
             <li><a href="contact.html">Contact</a></li>
-            <li><button class="theme-toggle" id="themeToggle">
-                <i class="fas fa-moon"></i>
+            <li><button class="gil-theme" id="themeChange">
+                <i class="moon-icon"></i>
             </button></li>
         </ul>
     </nav>
 
     <main>
-        <section class="projects">
+        <section class="gil-projects">
             <h2>My Projects</h2>
             
-            <div class="github-projects container">
+            <div class="gil-github-projects container">
                 
-                <!-- GitHub Repositories Loader -->
-                <div class="loader" id="githubLoader">
-                    <div class="spinner"></div>
+                <div class="gil-loader" id="githubLoader">
+                    <div class="gil-spinner"></div>
                     <p>Loading repositories...</p>
                 </div>
                 
-                <!-- GitHub Repositories Container -->
-                <div class="github-repos" id="githubRepos"></div>
+                <div class="gil-github-repos" id="githubRepos"></div>
                 
-                <!-- Error Message -->
-                <div class="error-message" id="githubError" style="display: none;">
+                <div class="gil-error-message" id="githubError" style="display: none;">
                     <p><i class="fas fa-exclamation-circle"></i> Unable to load GitHub repositories. Please try again later.</p>
                 </div>
             </div>
@@ -51,10 +41,10 @@
     </main>
 
     <footer>
-        <div class="social-links">
-            <a href="https://github.com/gilbmura" target="_blank"><i class="fab fa-github"></i></a>
-            <a href="https://www.linkedin.com/in/gilbert-muramira/" target="_blank"><i class="fab fa-linkedin"></i></a>
-            <a href="https://x.com/GMuramira" target="_blank"><i class="fab fa-twitter"></i></a>
+        <div class="gil-socials">
+            <a href="https://github.com/gilbmura" target="_blank"><i class="gil-github"></i></a>
+            <a href="https://www.linkedin.com/in/gilbert-muramira/" target="_blank"><i class="gil-linkedin"></i></a>
+            <a href="https://x.com/GMuramira" target="_blank"><i class="gil-twitter"></i></a>
         </div>
         <p>&copy; 2025 Gilbert Muramirabagabo. All rights reserved.</p>
     </footer>
